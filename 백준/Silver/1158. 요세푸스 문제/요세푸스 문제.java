@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -24,15 +23,12 @@ public class Main {
             for (int i = 0; i < k - 1; i++) {
                 queue.add(queue.poll());
             }
-//            System.out.println(queue.peek());
             result[idx] = queue.poll();
             idx++;
         }
-//        System.out.println(Arrays.toString(result));
-//        System.out.print(result + " ");
+
         StringBuilder sb = new StringBuilder();
         sb.append("<");
-
         for (int i = 0; i < result.length; i++) {
             if (i == 0) {
                 sb.append(String.valueOf(result[i]));
