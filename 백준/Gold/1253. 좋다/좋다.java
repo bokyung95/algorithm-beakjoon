@@ -10,16 +10,16 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        long[] arr = new long[n];
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
-            arr[i] = Long.parseLong(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
         Arrays.sort(arr);
 
         int count = 0;
         for (int i = 0; i < n; i++) {
-            long find = arr[i];
+            int find = arr[i];
             int start = 0;
             int end = n - 1;
             while (start < end) {
