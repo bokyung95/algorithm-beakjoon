@@ -1,41 +1,23 @@
-import java.util.*;
-
 class Solution {
+    static int answer = 0;
+    
     public int solution(int n, int k) {
-        StringBuilder sb = new StringBuilder();
-        int answer = 0;
-        
-        String numK = "";
-        while(n != 0){
-            numK += String.valueOf(n % k);
-            n = n / k;
-        }
-        numK = sb.append(numK).reverse().toString();
-        
-        
-        System.out.println(numK);
-        
-        numK = numK.replaceAll("[0]{2,}","0");
-        String[] num = numK.split("0");
-        
-        for(int i = 0; i < num.length;i ++){
-                if(isPrime(Long.parseLong(num[i]))){
-                    answer++;
-                  }
-            
-             System.out.println(i + " " + num[i]);
-            
+        String number = Integer.toString(n, k); //10진수 n k진수로 변환하기
+        String[] numArr = number.split("0");
+        for (int i = 0; i < numArr.length; i++) {
+            if (numArr[i].length() != 0 && Long.parseLong(numArr[i]) != 1) {
+                isPrime(Long.parseLong(numArr[i]));
+            }
         }
         return answer;
     }
     
-    public boolean isPrime(Long n){
-        if (n == 1 || n == 0){
-            return false;
+    public static void isPrime(long n) {
+        for (int i = 2; i <= (int) Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return;
+            }
         }
-        for(int i = 2; i <= Math.sqrt(n); i++){
-            if(n % i == 0) return false;
-        }
-        return true;
+        answer++;
     }
 }
