@@ -17,18 +17,17 @@ public class Main {
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             String command = st.nextToken();
-            if (command.equals("push")) {
-                int num = Integer.parseInt(st.nextToken());
-                stack.push(num);
-            } else if (command.equals("pop")) {
+            if ("push".equals(command)) {
+                stack.push(Integer.parseInt(st.nextToken()));
+            } else if ("pop".equals(command)) {
                 if (stack.isEmpty()) {
                     sb.append(-1).append("\n");
                 } else {
-                    (sb.append(stack.pop())).append("\n");
+                    sb.append(stack.pop()).append("\n");
                 }
-            } else if (command.equals("size")) {
+            } else if ("size".equals(command)) {
                 sb.append(stack.size()).append("\n");
-            } else if (command.equals("empty")) {
+            } else if ("empty".equals(command)) {
                 if (stack.isEmpty()) {
                     sb.append(1).append("\n");
                 } else {
